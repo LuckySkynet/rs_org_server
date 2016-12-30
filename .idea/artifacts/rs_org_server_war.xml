@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="rs_org_server:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="alisn.rs.war">
-      <element id="artifact" artifact-name="rs_org_server:war exploded" />
-    </root>
-  </artifact>
-</component>
