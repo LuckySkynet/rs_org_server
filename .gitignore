@@ -65,8 +65,10 @@ local.properties
 .idea/dictionaries
 .idea/vcs.xml
 .idea/jsLibraryMappings.xml
+# ignore .idea/ dir
 .idea/
 *.iml
+
 
 # Sensitive or high-churn files:
 .idea/dataSources.ids
