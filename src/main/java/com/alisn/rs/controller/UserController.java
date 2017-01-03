@@ -25,7 +25,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-
     /**
      * 登陆
      */
@@ -38,7 +37,7 @@ public class UserController {
      * 账号注册
      */
     @RequestMapping("/regist")
-    public Result regist(@RequestBody  User user){
+    public Result regist(@RequestBody User user){
         String msg;
         if (StringUtils.isBlank(user.getUserName())){
             msg="账户名不能为空";
@@ -62,7 +61,9 @@ public class UserController {
 
 
     @RequestMapping("/password")
-    public Result password(){
+    public Result password(User user){
+        //判断旧密码是否正确
+
 
         return new Result();
     }

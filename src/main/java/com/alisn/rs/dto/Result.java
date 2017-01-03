@@ -1,5 +1,6 @@
 package com.alisn.rs.dto;
 
+import com.alisn.rs.constant.ReqStatus;
 import com.alisn.rs.util.Constant;
 
 /**
@@ -10,7 +11,7 @@ public class Result<T> {
     /**
      * 0=失败，1成功，默认成功
      */
-    private int isSuccessed= Constant.status.SUCCESS.getState();
+    private ReqStatus state = ReqStatus.SUCCESS;
     //信息
     private String msg ="";
 
@@ -30,27 +31,5 @@ public class Result<T> {
         this.msg=msg;
     }
 
-    public int getIsSuccessed() {
-        return isSuccessed;
-    }
 
-    public void setIsSuccessed(int isSuccessed) {
-        this.isSuccessed = isSuccessed;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
 }

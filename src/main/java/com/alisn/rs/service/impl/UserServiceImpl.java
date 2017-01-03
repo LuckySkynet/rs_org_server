@@ -15,7 +15,7 @@ public class UserServiceImpl implements UserService {
     private final UserDao userDao;
 
     @Autowired
-    public UserServiceImpl(UserDao userDao) {
+    public UserServiceImpl(UserDao userDao)  {
         this.userDao = userDao;
     }
 
@@ -32,7 +32,13 @@ public class UserServiceImpl implements UserService {
 
     }
 
-    public void updatePassword() {
-
+    public Integer updatePassword(User user,String newPasswd) {
+        Integer i = userDao.find(user);
+        if (i == 0 || i == null){
+            return 0;
+        }
+        user.setUserPasswd(newPasswd);
+        userDao.updatePasswd(user);
+        return 1;
     }
 }

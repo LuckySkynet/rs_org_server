@@ -10,20 +10,20 @@ public interface UserService {
     /**
      * 登陆
      */
-    void login(String userName, String userPasswd);
+    void login(String userName, String userPasswd) throws Exception;
 
     /**
      * 注册
      */
-    void regist(User user);
+    void regist(User user) throws Exception;
 
     /**
      * 判断账号重复
      */
-    void isRepeat();
+    void isRepeat() throws Exception;
 
     /**
      * 更改密码
      */
-    void updatePassword();
+    Integer updatePassword(User user,String newPasswd) throws Exception;
 }
