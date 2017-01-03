@@ -1,6 +1,7 @@
 package com.alisn.rs.service.impl;
 
 import com.alisn.rs.dao.UserDao;
+import com.alisn.rs.entity.User;
 import com.alisn.rs.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,8 +24,8 @@ public class UserServiceImpl implements UserService {
 
     }
 
-    public void regist() {
-
+    public void regist(User user) {
+        userDao.insert(user);
     }
 
     public void isRepeat() {

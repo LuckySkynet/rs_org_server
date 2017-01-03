@@ -40,7 +40,7 @@
         <!--扫描domain域模型包，使用别名-->
         <property name="typeAliasesPackage" value="com.alisn.rs.entity"/>
         <!--配置mybatis全局配置文件-->
-        <property name="configLocation" value="mybatis-config.xml"/>
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
     </bean>
 
     <!--配置扫描Dao接口的包，动态实现Dao接口，注入到spring容器中-->
