@@ -10,7 +10,7 @@ public interface UserService {
     /**
      * 登陆
      */
-    void login(String userName, String userPasswd);
+    Integer login(User user);
 
     /**
      * 注册

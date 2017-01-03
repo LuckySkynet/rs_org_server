@@ -20,8 +20,8 @@ public class UserServiceImpl implements UserService {
     }
 
 
-    public void login(String userName, String userPasswd) {
-
+    public Integer login(User user) {
+        return userDao.find(user);
     }
 
     public void regist(User user) {

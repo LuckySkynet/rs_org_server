@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.alisn.rs.dao.UserDao">
 
-  <insert id="insert">
-      INSERT  INTO  USER_INFO(USER_ID,USER_NAME,USER_PASSWD)
-      VALUES (UUID(),#{userName,jdbcType=VARCHAR},#{userPasswd,jdbcType=VARCHAR})
-  </insert>
+    <insert id="insert">
+        INSERT INTO USER_INFO (USER_ID, USER_NAME, USER_PASSWD)
+        VALUES (UUID(), #{userName,jdbcType=VARCHAR}, #{userPasswd,jdbcType=VARCHAR})
+    </insert>
 
     <update id="updatePasswd">
-        UPDATE  USER_INFO
+        UPDATE USER_INFO
         SET USER_PASSWD = #{userPasswd,jdbcType=VARCHAR}
         WHERE USER_NAME = #{userName,jdbcType=VARCHAR}
     </update>
@@ -17,6 +17,6 @@
         SELECT count(*)
         FROM USER_INFO
         WHERE USER_NAME = #{userName,jdbcType=VARCHAR}
-          AND USER_PASSWD = #{userPasswd,jdbcType=VARCHAR}
+              AND USER_PASSWD = #{userPasswd,jdbcType=VARCHAR}
     </select>
 </mapper>
