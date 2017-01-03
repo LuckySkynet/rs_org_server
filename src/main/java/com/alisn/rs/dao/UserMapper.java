@@ -1,9 +1,10 @@
 package com.alisn.rs.dao;
 
-import com.alisn.rs.domain.User;
-import com.alisn.rs.domain.UserExample;
-import java.util.List;
+import com.alisn.rs.entity.User;
+import com.alisn.rs.entity.UserExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface UserMapper {
     /**

@@ -1,4 +1,4 @@
-package com.alisn.rs.domain;
+package com.alisn.rs.entity;
 
 import java.util.ArrayList;
 import java.util.Date;

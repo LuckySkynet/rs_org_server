@@ -32,14 +32,6 @@
         <setting name="autoMappingBehavior" value="PARTIAL"/>
 
         <!--
-            指定检测到自动映射目标的未知列（或未知属性类型）时的行为。
-            NONE: 不作处理
-            WARNING: 输出警告日志（日志级别在'org.apache.ibatis.session.AutoMappingUnknownColumnBehavior'中设置）
-            FAILING: 错误映射（抛出SqlSessionException）
-        -->
-        <setting name="autoMappingUnknownColumnBehavior" value="WARNING"/>
-
-        <!--
             配置默认的执行器。
             SIMPLE 就是普通的执行器；
             REUSE 执行器会重用预处理语句（prepared statements）；

@@ -14,8 +14,8 @@
             <property name="suppressDate" value="true"/>
         </commentGenerator>
         <!--jdbc的数据库连接 -->
-        <jdbcConnection driverClass="${driverClass}" connectionURL="${jdbcUrl}" userId="${user}"
-                        password="${password}"/>
+        <jdbcConnection driverClass="${jdbc.driverClass}" connectionURL="${jdbc.jdbcUrl}" userId="${jdbc.user}"
+                        password="${jdbc.password}"/>
         <!-- 非必需，类型处理器，在数据库类型和java类型之间的转换控制-->
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
@@ -25,7 +25,7 @@
             targetPackage     指定生成的model生成所在的包名
             targetProject     指定在该项目下所在的路径(若不指定，则默认生成一个target文件夹)
         -->
-        <javaModelGenerator targetPackage="com.alisn.rs.domain" targetProject="src\main\java">
+        <javaModelGenerator targetPackage="com.alisn.rs.entity" targetProject="src\main\java">
             <!-- 是否对类CHAR类型的列的数据进行trim操作 -->
             <property name="trimStrings" value="true"/>
             <!-- 是否允许子包，即targetPackage.schemaName.tableName -->
@@ -40,7 +40,7 @@
             -->
         </javaModelGenerator>
         <!--Mapper映射文件生成所在的目录 为每一个数据库的表生成对应的SqlMap文件 -->
-        <sqlMapGenerator targetPackage="com.alisn.rs.domain" targetProject="src\main\java">
+        <sqlMapGenerator targetPackage="com.alisn.rs.entity" targetProject="src\main\java">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
         <!--
