@@ -1,6 +1,5 @@
 package com.alisn.rs.dao;
 
-import com.alisn.rs.entity.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +15,12 @@ public class UserDaoTest {
 
     @Test
     public void insert() throws Exception {
-        String test = userDao.test();
-        System.out.println(test);
-      User user = new User();
-        user.setUserName("abc");
-        user.setUserPasswd("777");
-        System.out.println(userDao.insert(user));
+//        String test = userDao.test();
+//        System.out.println(test);
+//        User user = new User();
+//        user.setUserName("abc");
+//        user.setUserPasswd("777");
+//        System.out.println(userDao.insert(user));
     }
 
 }

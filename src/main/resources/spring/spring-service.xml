@@ -16,7 +16,4 @@
     <!--开启声明式事务-->
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <bean id="" class="">
-
-    </bean>
 </beans>

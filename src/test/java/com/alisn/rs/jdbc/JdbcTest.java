@@ -1,6 +1,6 @@
 package com.alisn.rs.jdbc;
 
-import com.alisn.rs.dao.UserMapper;
+import com.alisn.rs.dao.UserDao;
 import com.alisn.rs.entity.User;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.junit.Assert;
@@ -24,7 +24,7 @@ public class JdbcTest {
     private ComboPooledDataSource dataSource;
 
     @Autowired
-    private UserMapper userMapper;
+    private UserDao userDao;
 
     @Test
     public void testConn() throws SQLException {
@@ -36,7 +36,7 @@ public class JdbcTest {
     @Test
     public void testQuery(){
         String userId = "c4d10dee-cf41-11e6-9d99-00163e304ed4";
-        User user = userMapper.selectByPrimaryKey(userId);
+        User user = userDao.selectByPrimaryKey(userId);
         Assert.assertNotNull(user);
     }
 
