@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
  * Created by IntelliJ IDEA User: Sky-Net Date: 2017/1/3
  */
 @RestController
-@RequestMapping("/captcha")
 public class CaptchaController {
 
     private final UserCaptchaService userCaptchaService;
@@ -26,7 +25,7 @@ public class CaptchaController {
     /**
      * 获取验证码
      */
-    @RequestMapping(value = "/*", method = RequestMethod.GET)
+    @RequestMapping(value = "/captcha", method = RequestMethod.GET)
     public void getKaptchaImage(HttpServletRequest request, HttpServletResponse response) {
         userCaptchaService.getKaptchaImage(request, response);
     }
