@@ -5,8 +5,23 @@ package com.alisn.rs.service;
  */
 public interface UserService {
 
+    /**
+     * 登陆
+     */
     void login(String userName, String userPasswd);
 
+    /**
+     * 注册
+     */
     void regist();
 
+    /**
+     * 判断账号重复
+     */
+    void isRepeat();
+
+    /**
+     * 更改密码
+     */
+    void updatePassword();
 }

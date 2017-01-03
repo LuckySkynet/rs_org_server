@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by Skynet on 2017/1/1 12:17.
+ *
  */
 @Service
 public class UserServiceImpl implements UserService {
@@ -23,6 +23,14 @@ public class UserServiceImpl implements UserService {
     }
 
     public void regist() {
+
+    }
+
+    public void isRepeat() {
+
+    }
+
+    public void updatePassword() {
 
     }
 }
