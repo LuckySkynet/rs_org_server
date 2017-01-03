@@ -1,5 +1,7 @@
 package com.alisn.rs.service;
 
+import com.alisn.rs.entity.User;
+
 /**
  * Created by Skynet on 2017/1/1 12:17.
  */
@@ -13,7 +15,7 @@ public interface UserService {
     /**
      * 注册
      */
-    void regist();
+    void regist(User user);
 
     /**
      * 判断账号重复
