@@ -3,7 +3,7 @@ package com.alisn.rs.constant;
 /**
  *  请求状态
  */
-public enum ReqStatus implements BaseStatus{
+public enum ReqStatus {
 
     SUCCESS(1,"成功"),
     FAIL(2,"失败");

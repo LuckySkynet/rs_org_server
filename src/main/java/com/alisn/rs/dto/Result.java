@@ -1,17 +1,14 @@
 package com.alisn.rs.dto;
 
 import com.alisn.rs.constant.ReqStatus;
-import com.alisn.rs.util.Constant;
 
 /**
- * Created by Septem on 2017/1/3.
+ * 返回信息
  */
-public class Result<T> {
+public class Result<T,K> {
 
-    /**
-     * 0=失败，1成功，默认成功
-     */
-    private ReqStatus state = ReqStatus.SUCCESS;
+    // 0=失败，1成功，默认成功
+    private String state = ReqStatus.SUCCESS.getStateInfo();
     //信息
     private String msg ="";
 
@@ -21,15 +18,37 @@ public class Result<T> {
 
     }
 
-    public Result(int isSuccessed,T data){
-        this.isSuccessed=isSuccessed;
-        this.data=data;
+    public Result(String state, String msg) {
+        this.state = state;
+        this.msg = msg;
     }
 
-    public Result(int isSuccessed,String msg){
-        this.isSuccessed=isSuccessed;
-        this.msg=msg;
+    public Result(String state, T data) {
+        this.state = state;
+        this.data = data;
     }
 
+    public String getState() {
+        return state;
+    }
 
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
 }

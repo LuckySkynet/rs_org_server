@@ -25,5 +25,5 @@ public interface UserService {
     /**
      * 更改密码
      */
-    Integer updatePassword(User user,String newPasswd) throws Exception;
+    void updatePassword(User user,String newPasswd) throws Exception;
 }

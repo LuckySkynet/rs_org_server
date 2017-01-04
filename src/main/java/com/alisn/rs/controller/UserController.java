@@ -1,9 +1,10 @@
 package com.alisn.rs.controller;
 
+import com.alisn.rs.constant.ReqStatus;
 import com.alisn.rs.dto.Result;
 import com.alisn.rs.entity.User;
+import com.alisn.rs.exception.UserException;
 import com.alisn.rs.service.UserService;
-import com.alisn.rs.util.Constant;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,22 +39,18 @@ public class UserController {
      */
     @RequestMapping("/regist")
     public Result regist(@RequestBody User user){
-        String msg;
         if (StringUtils.isBlank(user.getUserName())){
-            msg="账户名不能为空";
-            return new Result(Constant.status.FAIL.getState(),msg);
+            return new Result(ReqStatus.FAIL.getStateInfo(),"账户名不能为空");
         }
         if (StringUtils.isBlank(user.getUserPasswd())){
-            msg="密码不能为空";
-            return new Result(Constant.status.FAIL.getState(),msg);
+            return new Result(ReqStatus.FAIL.getStateInfo(),"密码不能为空");
         }
 
         try{
             userService.regist(user);
         }catch (Exception e){
             logger.info(e.getMessage());
-            msg="唾骂出错了快改";
-            return new Result(Constant.status.FAIL.getState(),msg);
+            return new Result(ReqStatus.FAIL.getStateInfo(),"唾骂出错了快改");
         }
 
         return new Result();
@@ -61,9 +58,20 @@ public class UserController {
 
 
     @RequestMapping("/password")
-    public Result password(User user){
-        //判断旧密码是否正确
+    public Result password(User user,String newPasswd){
+        if (StringUtils.isBlank(user.getUserName()+user.getUserPasswd()+newPasswd)){
+            return new Result(ReqStatus.FAIL.getStateInfo(),"传入的信息不能有空");
+        }
 
+        try {
+            userService.updatePassword(user,newPasswd);
+        }catch (UserException e){
+            logger.info(e.getMessage());
+            return new Result(ReqStatus.FAIL.getStateInfo(),e.getMessage());
+        } catch (Exception e) {
+            logger.info(e.getMessage());
+            return new Result(ReqStatus.FAIL.getStateInfo(),"修改密码时出现了错误");
+        }
 
         return new Result();
     }

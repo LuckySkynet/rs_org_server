@@ -2,6 +2,7 @@ package com.alisn.rs.service.impl;
 
 import com.alisn.rs.dao.UserDao;
 import com.alisn.rs.entity.User;
+import com.alisn.rs.exception.UserException;
 import com.alisn.rs.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,13 +33,14 @@ public class UserServiceImpl implements UserService {
 
     }
 
-    public Integer updatePassword(User user,String newPasswd) {
-        Integer i = userDao.find(user);
-        if (i == 0 || i == null){
-            return 0;
+    public void updatePassword(User user,String newPasswd) {
+
+        if (userDao.find(user) !=1){
+            throw new UserException("旧密码错误！");
         }
         user.setUserPasswd(newPasswd);
-        userDao.updatePasswd(user);
-        return 1;
+        if ( userDao.updatePasswd(user)<1){
+            throw new UserException("修改密码失败！");
+        }
     }
 }
