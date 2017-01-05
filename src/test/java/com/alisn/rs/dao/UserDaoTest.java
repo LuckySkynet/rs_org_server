@@ -15,6 +15,12 @@ public class UserDaoTest {
     private UserDao userDao;
 
     @Test
+    public void testSomething(){
+
+    }
+
+
+    @Test
     public void insert() throws Exception {
         User user = new User();
         user.setUserName("abc");
@@ -26,8 +32,8 @@ public class UserDaoTest {
     public void updatePasswd() throws Exception {
         User user = new User();
         user.setUserName("abc");
-        user.setUserPasswd("8888");
-        userDao.updatePasswd(user);
+        user.setUserPasswd("88888");
+        System.out.println(userDao.updatePasswd(user));
     }
 
     @Test

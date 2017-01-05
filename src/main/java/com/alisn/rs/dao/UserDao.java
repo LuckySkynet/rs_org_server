@@ -6,7 +6,7 @@ public interface UserDao {
 
     void insert(User user);
 
-    void updatePasswd(User user);
+    Integer updatePasswd(User user);
 
     Integer find(User user);
 }
