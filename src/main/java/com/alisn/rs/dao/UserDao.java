@@ -9,4 +9,6 @@ public interface UserDao {
     Integer updatePasswd(User user);
 
     Integer find(User user);
+
+    User getByName(String username);
 }

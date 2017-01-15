@@ -19,7 +19,6 @@ public class UserDaoTest {
 
     }
 
-
     @Test
     public void insert() throws Exception {
         User user = new User();

@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -37,23 +38,21 @@ public class UserController {
     /**
      * 账号注册
      */
-    @RequestMapping("/regist")
-    public Result regist(@RequestBody User user){
+    @RequestMapping(value = "/regist",method = RequestMethod.POST,produces = "application/json")
+    public Result regist(@RequestBody User user) throws Exception {
         if (StringUtils.isBlank(user.getUserName())){
             return new Result(ReqStatus.FAIL.getStateInfo(),"账户名不能为空");
         }
         if (StringUtils.isBlank(user.getUserPasswd())){
             return new Result(ReqStatus.FAIL.getStateInfo(),"密码不能为空");
         }
-
         try{
             userService.regist(user);
         }catch (Exception e){
             logger.info(e.getMessage());
             return new Result(ReqStatus.FAIL.getStateInfo(),"唾骂出错了快改");
         }
-
-        return new Result();
+        return new Result(ReqStatus.SUCCESS.getStateInfo(),userService.getUser(user.getUserName()));
     }
 
 

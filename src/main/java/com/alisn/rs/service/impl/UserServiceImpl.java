@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService {
     private final UserDao userDao;
 
     @Autowired
-    public UserServiceImpl(UserDao userDao)  {
+    public UserServiceImpl(UserDao userDao) {
         this.userDao = userDao;
     }
 
@@ -33,14 +33,22 @@ public class UserServiceImpl implements UserService {
 
     }
 
-    public void updatePassword(User user,String newPasswd) {
-
-        if (userDao.find(user) !=1){
+    public void updatePassword(User user, String newPasswd) {
+        if (userDao.find(user) != 1) {
             throw new UserException("旧密码错误！");
         }
         user.setUserPasswd(newPasswd);
-        if ( userDao.updatePasswd(user)<1){
+        if (userDao.updatePasswd(user) < 1) {
             throw new UserException("修改密码失败！");
+        }
+    }
+
+    @Override
+    public User getUser(String userName) {
+        try {
+            return userDao.getByName(userName);
+        } catch (Exception e) {
+            throw new UserException("获取用户失败！");
         }
     }
 }

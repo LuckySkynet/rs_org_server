@@ -19,4 +19,14 @@
         WHERE USER_NAME = #{userName,jdbcType=VARCHAR}
               AND USER_PASSWD = #{userPasswd,jdbcType=VARCHAR}
     </select>
+
+    <select id="getByName" resultType="User">
+        SELECT
+            USER_ID,
+            USER_NAME,
+            USER_PASSWD,
+            CREATE_TIME
+        FROM USER_INFO
+        WHERE USER_NAME = #{userName,jdbcType=VARCHAR}
+    </select>
 </mapper>
