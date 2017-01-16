@@ -5,8 +5,8 @@ package com.alisn.rs.constant;
  */
 public enum ReqStatus {
 
-    SUCCESS(1,"成功"),
-    FAIL(2,"失败");
+    SUCCESS(1,"success"),
+    FAIL(0,"fail");
 
     private final int state;
     private final String stateInfo;

@@ -3,7 +3,7 @@
 <mapper namespace="com.alisn.rs.dao.UserDao">
 
     <insert id="insert">
-        INSERT INTO USER_INFO (USER_ID, USER_NAME, USER_PASSWD)
+        INSERT IGNORE INTO USER_INFO (USER_ID, USER_NAME, USER_PASSWD)
         VALUES (UUID(), #{userName,jdbcType=VARCHAR}, #{userPasswd,jdbcType=VARCHAR})
     </insert>
 

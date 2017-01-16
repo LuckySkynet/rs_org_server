@@ -4,6 +4,7 @@ import com.alisn.rs.dao.UserDao;
 import com.alisn.rs.entity.User;
 import com.alisn.rs.exception.UserException;
 import com.alisn.rs.service.UserService;
+import com.alisn.rs.util.EncoderUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +27,13 @@ public class UserServiceImpl implements UserService {
     }
 
     public void regist(User user) {
-        userDao.insert(user);
+        //加密操作
+        String encodePasswd = EncoderUtil.md5EncodeWithSalt(user.getUserPasswd(), user.getUserName());
+        user.setUserPasswd(encodePasswd);
+        Integer flag = userDao.insert(user);
+        if(flag < 1){
+            throw new UserException("用户注册失败");
+        }
     }
 
     public void isRepeat() {

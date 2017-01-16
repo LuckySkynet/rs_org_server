@@ -4,7 +4,7 @@ import com.alisn.rs.entity.User;
 
 public interface UserDao {
 
-    void insert(User user);
+    Integer insert(User user);
 
     Integer updatePasswd(User user);
 

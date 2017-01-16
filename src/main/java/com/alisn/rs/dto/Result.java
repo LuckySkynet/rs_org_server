@@ -7,8 +7,8 @@ import com.alisn.rs.constant.ReqStatus;
  */
 public class Result<T,K> {
 
-    // 0=失败，1成功，默认成功
-    private String state = ReqStatus.SUCCESS.getStateInfo();
+    // 0:失败，1:成功，默认成功
+    private String stateInfo = ReqStatus.SUCCESS.getStateInfo();
     //信息
     private String msg ="";
 
@@ -18,22 +18,22 @@ public class Result<T,K> {
 
     }
 
-    public Result(String state, String msg) {
-        this.state = state;
+    public Result(String stateInfo, String msg) {
+        this.stateInfo = stateInfo;
         this.msg = msg;
     }
 
-    public Result(String state, T data) {
-        this.state = state;
+    public Result(String stateInfo, T data) {
+        this.stateInfo = stateInfo;
         this.data = data;
     }
 
-    public String getState() {
-        return state;
+    public String getStateInfo() {
+        return stateInfo;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setStateInfo(String stateInfo) {
+        this.stateInfo = stateInfo;
     }
 
     public String getMsg() {

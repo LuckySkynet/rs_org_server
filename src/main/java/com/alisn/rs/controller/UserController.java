@@ -24,11 +24,15 @@ public class UserController {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    private final UserService userService;
+
     @Autowired
-    private UserService userService;
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     /**
-     * 登陆
+     * 用户登录
      */
     @RequestMapping("/login")
     public Result login(){
@@ -36,7 +40,7 @@ public class UserController {
     }
 
     /**
-     * 账号注册
+     * 用户注册
      */
     @RequestMapping(value = "/regist",method = RequestMethod.POST,produces = "application/json")
     public Result regist(@RequestBody User user) throws Exception {
@@ -50,7 +54,7 @@ public class UserController {
             userService.regist(user);
         }catch (Exception e){
             logger.info(e.getMessage());
-            return new Result(ReqStatus.FAIL.getStateInfo(),"唾骂出错了快改");
+            return new Result(ReqStatus.FAIL.getStateInfo(),e.getMessage());
         }
         return new Result(ReqStatus.SUCCESS.getStateInfo(),userService.getUser(user.getUserName()));
     }
