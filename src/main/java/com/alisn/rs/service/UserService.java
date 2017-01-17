@@ -20,7 +20,7 @@ public interface UserService {
     /**
      * 判断账号重复
      */
-    void isRepeat() throws Exception;
+    void isRepeat(User user) throws Exception;
 
     /**
      * 更改密码

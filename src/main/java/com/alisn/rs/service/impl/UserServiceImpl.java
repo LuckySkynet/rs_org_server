@@ -36,8 +36,12 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    public void isRepeat() {
 
+    public void isRepeat(User user) throws Exception{
+        Integer flag = userDao.find(user);
+        if(flag > 0){
+            throw new UserException("用户注册失败");
+        }
     }
 
     public void updatePassword(User user, String newPasswd) {

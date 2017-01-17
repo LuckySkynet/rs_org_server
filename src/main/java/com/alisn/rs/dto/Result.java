@@ -5,7 +5,7 @@ import com.alisn.rs.constant.ReqStatus;
 /**
  * 返回信息
  */
-public class Result<T,K> {
+public class Result<T> {
 
     // 0:失败，1:成功，默认成功
     private String stateInfo = ReqStatus.SUCCESS.getStateInfo();
